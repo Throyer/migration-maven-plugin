@@ -29,4 +29,20 @@ public class NameFormator {
         System.out.println("Formate success. Migration name: " + result + " ...\n");
         return result;
     }
+
+    public static String formatNameMigrationSQLFileBased(String name) {
+        System.out.println("formating name: " + name + " ...\n");
+        
+        var result = join(UNDERSCORE, 
+            stream(name
+                .replaceAll(DOT, UNDERSCORE)
+                .replaceAll(MINUS, UNDERSCORE)
+            .split(SPACE))
+                .map(word -> capitalize(normalize(word, NFD)
+                    .replaceAll(SPECIAL_CHARACTERS, EMPTY)))
+                        .toArray(String[]::new)).toLowerCase();
+
+        System.out.println("Formate success. Migration name: " + result + " ...\n");
+        return result;
+    }
 }

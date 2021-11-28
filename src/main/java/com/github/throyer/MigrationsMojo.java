@@ -1,6 +1,7 @@
 package com.github.throyer;
 
 import static com.github.throyer.migrations.JavaMigrationGenerator.createJavaMigration;
+import static com.github.throyer.migrations.SQLMigrationGenerator.createSQLFileMigration;
 import static org.apache.maven.plugins.annotations.LifecyclePhase.INITIALIZE;
 
 import org.apache.maven.plugin.AbstractMojo;
@@ -23,12 +24,11 @@ public class MigrationsMojo extends AbstractMojo {
 
     @Override
     public void execute() throws MojoExecutionException, MojoFailureException {
-
         if (type.equals("sql")) {
-            System.out.println("not implemented yet.");
+            createSQLFileMigration(name);
+        } else {
+            createJavaMigration(name);
         }
-
-        createJavaMigration(name);
     }
 }
 

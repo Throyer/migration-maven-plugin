@@ -1,8 +1,7 @@
 package com.github.throyer;
 
+import static com.github.throyer.migrations.JavaMigrationGenerator.createJavaMigration;
 import static org.apache.maven.plugins.annotations.LifecyclePhase.INITIALIZE;
-
-import java.sql.Timestamp;
 
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
@@ -24,12 +23,12 @@ public class MigrationsMojo extends AbstractMojo {
 
     @Override
     public void execute() throws MojoExecutionException, MojoFailureException {
-        var timestamp = new Timestamp(System.currentTimeMillis()).getTime();
 
-        var filename = String.format("%s__%s.java", timestamp, name.replaceAll("-", "_"));
+        if (type.equals("sql")) {
+            System.out.println("not implemented yet.");
+        }
 
-        System.out.println(filename);
+        createJavaMigration(name);
     }
-
 }
 

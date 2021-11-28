@@ -20,7 +20,9 @@ public class JavaMigrationGenerator {
 
         System.out.println("Start generate a file ...\n");
 
-        of(root(), SOURCE_PATH).toFile().mkdirs();
+        if (!of(root(), SOURCE_PATH).toFile().exists()) {
+            of(root(), SOURCE_PATH).toFile().mkdirs();
+        }
 
         var path = of(
             root(),

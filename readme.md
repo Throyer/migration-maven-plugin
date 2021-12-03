@@ -24,7 +24,7 @@ put the jitpack.io repository on pom.xml
 </pluginRepositories>
 ```
 
-make sure you have the spring dependencies
+make sure you have the `spring boot` dependencies
 ```xml
 <dependencies>
     ...

@@ -9,6 +9,11 @@ Based on typeorm, laravel, entityframework and other frameworks/orms.
 >> 
 >> `src/main/resources/db/migration` sql based migrations dir
 
+## jitpack.oi
+https://jitpack.io/#throyer/migration-maven-plugin/1.2.1
+
+[![Release](https://jitpack.io/v/throyer/migration-maven-plugin.svg)](https://jitpack.io/#throyer/migration-maven-plugin)
+
 ## Using
 
 put the repository in your pom.xml

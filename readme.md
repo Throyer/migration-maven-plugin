@@ -6,6 +6,7 @@ Based on typeorm, laravel, entityframework and other frameworks/orms.
 
 > **🚨 disclaimer** *for now the directories where migrations are created is used the spring boot convention with flyway, in the future this will be parameterized* 
 >> `src/main/java/db/migration` Java based migrations dir
+>> 
 >> `src/main/resources/db/migration` sql based migrations dir
 
 ## Using

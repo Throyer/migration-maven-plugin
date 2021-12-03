@@ -10,6 +10,8 @@ import static java.nio.file.Path.of;
 import java.io.FileWriter;
 import java.io.IOException;
 
+import com.google.common.io.Resources;
+
 public class JavaMigrationGenerator {
 
     private JavaMigrationGenerator() { }
@@ -39,32 +41,9 @@ public class JavaMigrationGenerator {
         createFile(path.toString()).ifPresent((file) -> {
             try (FileWriter writer = new FileWriter(file)) {
                 System.out.println("try write data on file ...\n");
-                writer.write(format("""
-                package db.migration;
-                
-                import static org.jooq.impl.DSL.*;
-                import static org.jooq.impl.SQLDataType.*;
-                import org.flywaydb.core.api.migration.BaseJavaMigration;
-                import org.flywaydb.core.api.migration.Context;
-
-                /**
-                 * @see https://www.jooq.org/doc/3.1/manual/sql-building/ddl-statements/
-                 */
-                public class V%s__%s extends BaseJavaMigration {
-                    public void migrate(Context context) throws Exception {
-                        var create = using(context.getConnection());
-                        // create.transaction(configuration -> {
-                        //     using(configuration)
-                        //         .createTableIfNotExists(\"foo\")
-                        //             .column(\"id\", BIGINT.identity(true))
-                        //             .column(\"bar\", VARCHAR(100).nullable(false))
-                        //         .constraints(
-                        //             primaryKey(\"id\"))
-                        //         .execute();
-                        // });
-                    }
-                }
-                """, timestamp(), migrationName));
+                var tempalte = Resources.getResource("templates/java-based.txt");
+                var text = tempalte.toString();
+                writer.write(format(text, timestamp(), migrationName));
                 writer.close();
             } catch (IOException e) { }
         });                        

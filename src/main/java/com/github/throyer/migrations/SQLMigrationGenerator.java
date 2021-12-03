@@ -39,9 +39,7 @@ public class SQLMigrationGenerator {
         createFile(path.toString()).ifPresent((file) -> {
             try (FileWriter writer = new FileWriter(file)) {
                 System.out.println("try write data on file ...\n");
-                writer.write(format("""
-                -- my sql migration
-                """, timestamp(), migrationName));
+                writer.write("");
                 writer.close();
             } catch (IOException e) { }
         });                        

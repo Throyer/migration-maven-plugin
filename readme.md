@@ -14,21 +14,47 @@ Based on typeorm, laravel, entityframework and other frameworks/orms.
 
 ## Using
 
-put the repository in your pom.xml
+put the jitpack.io repository on pom.xml
 ```xml
-    <pluginRepositories>
-        <pluginRepository>
-            <id>jitpack.io</id>
-            <url>https://jitpack.io</url>
-        </pluginRepository>
-    </pluginRepositories>
-    ...
+<pluginRepositories>
+    <pluginRepository>
+        <id>jitpack.io</id>
+        <url>https://jitpack.io</url>
+    </pluginRepository>
+</pluginRepositories>
+```
 
-    <plugin>
-        <groupId>com.github.throyer</groupId>
-        <artifactId>migration-maven-plugin</artifactId>
-        <version>1.2.3</version>
-    </plugin>
+make sure you have the spring dependencies
+```xml
+<dependencies>
+    ...
+    <dependency>
+        <groupId>org.flywaydb</groupId>
+        <artifactId>flyway-core</artifactId>
+    </dependency>
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-jooq</artifactId>
+    </dependency>
+    ...
+</dependencies>
+```
+
+put it in the list of plugins in pom.xml
+```xml
+<build>
+    ...
+    <plugins>
+        ...
+        <plugin>
+            <groupId>com.github.throyer</groupId>
+            <artifactId>migration-maven-plugin</artifactId>
+            <version>1.2.3</version>
+        </plugin>
+        ...
+    </plugins>
+    ...
+</build>
 ```
 
 generate migation java based file:

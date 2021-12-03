@@ -7,10 +7,14 @@ import static com.github.throyer.utils.Path.root;
 import static java.lang.String.format;
 import static java.nio.file.Path.of;
 
+import org.apache.log4j.Logger;
+
 import java.io.FileWriter;
 import java.io.IOException;
 
 public class SQLMigrationGenerator {
+
+    static final Logger logger = Logger.getLogger(SQLMigrationGenerator.class);
 
     private static final String TEMPLATE_PATH = "V%s__%s.sql";
     private static final String SOURCE_PATH = "/src/main/resources/db/migration/";
@@ -20,7 +24,7 @@ public class SQLMigrationGenerator {
     public static void createSQLFileMigration(String name) {
         var migrationName = formatNameMigrationSQLFileBased(name);
 
-        System.out.println("Start generate a file ...\n");
+        logger.debug("Start generate a file");
 
         if (!of(root(), SOURCE_PATH).toFile().exists()) {
             of(root(), SOURCE_PATH).toFile().mkdirs();
@@ -38,10 +42,13 @@ public class SQLMigrationGenerator {
 
         createFile(path.toString()).ifPresent((file) -> {
             try (FileWriter writer = new FileWriter(file)) {
-                System.out.println("try write data on file ...\n");
+                logger.debug("try write data on file");
                 writer.write("");
                 writer.close();
-            } catch (IOException e) { }
+                logger.debug("write file success");
+            } catch (IOException e) {
+                logger.debug("write file fail");
+            }
         });                        
     }
 }

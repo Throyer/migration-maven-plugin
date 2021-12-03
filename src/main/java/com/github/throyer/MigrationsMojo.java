@@ -2,6 +2,7 @@ package com.github.throyer;
 
 import static com.github.throyer.migrations.JavaMigrationGenerator.createJavaMigration;
 import static com.github.throyer.migrations.SQLMigrationGenerator.createSQLFileMigration;
+import static org.apache.log4j.BasicConfigurator.configure;
 import static org.apache.maven.plugins.annotations.LifecyclePhase.INITIALIZE;
 
 import org.apache.maven.plugin.AbstractMojo;
@@ -12,6 +13,10 @@ import org.apache.maven.plugins.annotations.Parameter;
 
 @Mojo(name = "generate", defaultPhase = INITIALIZE)
 public class MigrationsMojo extends AbstractMojo {
+
+    static {
+        configure();
+    }
 
     @Parameter(property = "type", defaultValue = "java")
     String type;

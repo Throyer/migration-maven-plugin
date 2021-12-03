@@ -13,18 +13,18 @@ Based on typeorm, laravel, entityframework and other frameworks/orms.
 
 put the repository in your pom.xml
 ```xml
-    <repositories>
-        <repository>
-            <id>migration-maven-plugin</id>
-            <url>file://${project.basedir}/lib/migration-maven-plugin-1.0.0.jar</url>
-        </repository>
-    </repositories>
+    <pluginRepositories>
+		<pluginRepository>
+		    <id>jitpack.io</id>
+		    <url>https://jitpack.io</url>
+		</pluginRepository>
+	</pluginRepositories>
     ...
 
     <plugin>
         <groupId>com.github.throyer</groupId>
         <artifactId>migration-maven-plugin</artifactId>
-        <version>1.0.0</version>
+        <version>1.2.1</version>
     </plugin>
 ```
 

@@ -11,13 +11,16 @@ import static java.text.Normalizer.normalize;
 import static java.text.Normalizer.Form.NFD;
 import static java.util.Arrays.stream;
 import static org.apache.commons.lang3.StringUtils.capitalize;
+import org.apache.log4j.Logger;
 
 public class NameFormatter {
 
     private NameFormatter() {}
 
+    static final Logger logger = Logger.getLogger(NameFormatter.class);
+
     public static String formatNameMigrationJavaBased(String name) {
-        System.out.println("formating name: " + name + " ...\n");
+        logger.debug("formatting name: " + name);
         
         var result = join(EMPTY, 
             stream(name
@@ -29,12 +32,12 @@ public class NameFormatter {
                     .replaceAll(SPECIAL_CHARACTERS, EMPTY)))
                         .toArray(String[]::new));
 
-        System.out.println("Formate success. Migration name: " + result + " ...\n");
+        logger.debug("Formate success. Migration name: " + result);
         return result;
     }
 
     public static String formatNameMigrationSQLFileBased(String name) {
-        System.out.println("formating name: " + name + " ...\n");
+        logger.debug("formatting name: " + name);
         
         var result = join(UNDERSCORE, 
             stream(name
@@ -45,7 +48,7 @@ public class NameFormatter {
                     .replaceAll(SPECIAL_CHARACTERS, EMPTY)))
                         .toArray(String[]::new)).toLowerCase();
 
-        System.out.println("Formate success. Migration name: " + result + " ...\n");
+        logger.debug("Formate success. Migration name: " + result);
         return result;
     }
 }

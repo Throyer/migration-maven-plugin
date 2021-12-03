@@ -1,6 +1,6 @@
 package com.github.throyer.migrations;
 
-import static com.github.throyer.migrations.NameFormator.formatNameMigrationSQLFileBased;
+import static com.github.throyer.migrations.NameFormatter.formatNameMigrationSQLFileBased;
 import static com.github.throyer.migrations.TimestampGenerator.timestamp;
 import static com.github.throyer.utils.Path.createFile;
 import static com.github.throyer.utils.Path.root;
@@ -14,6 +14,8 @@ public class SQLMigrationGenerator {
 
     private static final String TEMPLATE_PATH = "V%s__%s.sql";
     private static final String SOURCE_PATH = "/src/main/resources/db/migration/";
+
+    private SQLMigrationGenerator() { }
 
     public static void createSQLFileMigration(String name) {
         var migrationName = formatNameMigrationSQLFileBased(name);

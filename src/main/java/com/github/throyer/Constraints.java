@@ -1,6 +1,9 @@
 package com.github.throyer;
 
 public class Constraints {
+
+    private Constraints() { }
+
     public static final String UNDERSCORE = "_";
     public static final String MINUS = "-";
     public static final String DOT = "\\.";

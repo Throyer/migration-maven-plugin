@@ -1,6 +1,6 @@
 package com.github.throyer.migrations;
 
-import static com.github.throyer.migrations.NameFormator.formatNameMigrationJavaBased;
+import static com.github.throyer.migrations.NameFormatter.formatNameMigrationJavaBased;
 import static com.github.throyer.migrations.TimestampGenerator.timestamp;
 import static com.github.throyer.utils.Path.createFile;
 import static com.github.throyer.utils.Path.root;
@@ -11,6 +11,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class JavaMigrationGenerator {
+
+    private JavaMigrationGenerator() { }
 
     private static final String TEMPLATE_PATH = "V%s__%s.java";
     private static final String SOURCE_PATH = "/src/main/java/db/migration/";

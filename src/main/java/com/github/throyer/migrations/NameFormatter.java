@@ -12,7 +12,10 @@ import static java.text.Normalizer.Form.NFD;
 import static java.util.Arrays.stream;
 import static org.apache.commons.lang3.StringUtils.capitalize;
 
-public class NameFormator {
+public class NameFormatter {
+
+    private NameFormatter() {}
+
     public static String formatNameMigrationJavaBased(String name) {
         System.out.println("formating name: " + name + " ...\n");
         

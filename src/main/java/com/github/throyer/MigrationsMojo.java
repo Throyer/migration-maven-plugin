@@ -10,9 +10,6 @@ import org.apache.maven.plugin.MojoFailureException;
 import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
 
-/**
- * mvn com.github.throyer:migration-maven-plugin:generate -Dname=Migration-nova
- */
 @Mojo(name = "generate", defaultPhase = INITIALIZE)
 public class MigrationsMojo extends AbstractMojo {
 

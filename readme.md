@@ -19,11 +19,11 @@ https://jitpack.io/#throyer/migration-maven-plugin/1.2.1
 put the repository in your pom.xml
 ```xml
     <pluginRepositories>
-		<pluginRepository>
-		    <id>jitpack.io</id>
-		    <url>https://jitpack.io</url>
-		</pluginRepository>
-	</pluginRepositories>
+        <pluginRepository>
+            <id>jitpack.io</id>
+            <url>https://jitpack.io</url>
+        </pluginRepository>
+    </pluginRepositories>
     ...
 
     <plugin>

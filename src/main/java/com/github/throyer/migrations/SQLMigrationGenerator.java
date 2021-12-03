@@ -12,6 +12,8 @@ import org.apache.log4j.Logger;
 import java.io.FileWriter;
 import java.io.IOException;
 
+import com.github.throyer.MigrationsMojo;
+
 public class SQLMigrationGenerator {
 
     static final Logger logger = Logger.getLogger(SQLMigrationGenerator.class);
@@ -24,7 +26,9 @@ public class SQLMigrationGenerator {
     public static void createSQLFileMigration(String name) {
         var migrationName = formatNameMigrationSQLFileBased(name);
 
-        logger.debug("Start generate a file");
+        if (MigrationsMojo.DEBUG) {
+            logger.debug("Start generate a file");
+        }
 
         if (!of(root(), SOURCE_PATH).toFile().exists()) {
             of(root(), SOURCE_PATH).toFile().mkdirs();
@@ -42,12 +46,20 @@ public class SQLMigrationGenerator {
 
         createFile(path.toString()).ifPresent((file) -> {
             try (FileWriter writer = new FileWriter(file)) {
-                logger.debug("try write data on file");
+                if (MigrationsMojo.DEBUG) {
+                    logger.debug("try write data on file");
+                }
+
                 writer.write("");
                 writer.close();
-                logger.debug("write file success");
+
+                if (MigrationsMojo.DEBUG) {
+                    logger.debug("write file success");
+                }
             } catch (IOException e) {
-                logger.debug("write file fail");
+                if (MigrationsMojo.DEBUG) {
+                    logger.debug("write file fail");
+                }
             }
         });                        
     }

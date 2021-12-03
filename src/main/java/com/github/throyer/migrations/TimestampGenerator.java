@@ -5,6 +5,8 @@ import static java.time.format.DateTimeFormatter.ofPattern;
 import java.time.Instant;
 import java.time.LocalDateTime;
 
+import com.github.throyer.MigrationsMojo;
+
 import org.apache.log4j.Logger;
 
 public class TimestampGenerator {
@@ -16,7 +18,11 @@ public class TimestampGenerator {
     public static String timestamp() {       
         var date = ofPattern("yyyyMMddhhmm").format(LocalDateTime.now()); 
         Long timestamp = Instant.now().getEpochSecond();
-        logger.debug("Create timestamp: " + timestamp);
+        
+        if (MigrationsMojo.DEBUG) {
+            logger.debug("Create timestamp: " + timestamp);
+        }
+
         return String.format("%s%s", date, timestamp);
     }
 }

@@ -9,7 +9,8 @@ import org.junit.Test;
 public class FindTemplateTest {
 
     @Test
-    public void should_read_template_file() {        
-        assertTrue(Resources.getTemplate("java-based").contains("BaseJavaMigration"));
+    public void should_read_template_file() {
+        var template = Resources.getTemplate("java-based");
+        assertTrue(template.contains("BaseJavaMigration"));
     }
 }

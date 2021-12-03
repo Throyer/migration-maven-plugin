@@ -18,9 +18,10 @@ public class MigrationsMojo extends AbstractMojo {
         configure();
     }
 
-    public static void main(String[] args) {
-        createJavaMigration("batatinha-quando-nasce");
-    }
+    public static boolean DEBUG;
+
+    @Parameter(property = "debug", defaultValue = "false")
+    boolean debug;
 
     @Parameter(property = "type", defaultValue = "java")
     String type;
@@ -30,6 +31,7 @@ public class MigrationsMojo extends AbstractMojo {
 
     @Override
     public void execute() throws MojoExecutionException, MojoFailureException {
+        MigrationsMojo.DEBUG = debug;
         if (type.equals("sql")) {
             createSQLFileMigration(name);
         } else {

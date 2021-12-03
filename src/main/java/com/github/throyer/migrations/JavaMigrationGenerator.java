@@ -13,6 +13,8 @@ import org.apache.log4j.Logger;
 import java.io.FileWriter;
 import java.io.IOException;
 
+import com.github.throyer.MigrationsMojo;
+
 public class JavaMigrationGenerator {
 
     static final Logger logger = Logger.getLogger(JavaMigrationGenerator.class);
@@ -24,8 +26,10 @@ public class JavaMigrationGenerator {
 
     public static void createJavaMigration(String name) {
         var migrationName = formatNameMigrationJavaBased(name);
-
-        logger.debug("Start generate a file");
+        
+        if (MigrationsMojo.DEBUG) {
+            logger.debug("Start generate a file");
+        }
 
         if (!of(root(), SOURCE_PATH).toFile().exists()) {
             of(root(), SOURCE_PATH).toFile().mkdirs();
@@ -43,13 +47,20 @@ public class JavaMigrationGenerator {
 
         createFile(path.toString()).ifPresent((file) -> {
             try (FileWriter writer = new FileWriter(file)) {
-                logger.debug("try write data on file");
-                System.out.println();                
+                if (MigrationsMojo.DEBUG) {
+                    logger.debug("try write data on file");
+                }
+
                 writer.write(format(getTemplate("java-based"), timestamp(), migrationName));
                 writer.close();
-                logger.debug("write file success");
+
+                if (MigrationsMojo.DEBUG) {
+                    logger.debug("write file success");
+                }
             } catch (IOException e) {
-                logger.debug("write file fail");
+                if (MigrationsMojo.DEBUG) {
+                    logger.debug("write file fail");
+                }
             }
         });                        
     }

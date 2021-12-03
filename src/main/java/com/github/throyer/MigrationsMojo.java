@@ -18,6 +18,10 @@ public class MigrationsMojo extends AbstractMojo {
         configure();
     }
 
+    public static void main(String[] args) {
+        createJavaMigration("batatinha-quando-nasce");
+    }
+
     @Parameter(property = "type", defaultValue = "java")
     String type;
 

@@ -14,7 +14,7 @@ public class Resources {
             var file = Paths.get(res.toURI()).toFile();
             var br = new BufferedReader(new FileReader(file));
             var text = br.lines().collect(Collectors.joining("\n"));
-            br.close();
+            br.close();            
             return text;            
         } catch (Exception e) {
             return "";

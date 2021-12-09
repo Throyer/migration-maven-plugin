@@ -1,9 +1,6 @@
 package com.github.throyer.migrations;
 
-import static java.time.format.DateTimeFormatter.ofPattern;
-
-import java.time.Instant;
-import java.time.LocalDateTime;
+import java.sql.Timestamp;
 
 import com.github.throyer.MigrationsMojo;
 
@@ -16,13 +13,12 @@ public class TimestampGenerator {
     private TimestampGenerator() { }
 
     public static String timestamp() {       
-        var date = ofPattern("yyyyMMddhhmm").format(LocalDateTime.now()); 
-        Long timestamp = Instant.now().getEpochSecond();
+        Long timestamp = new Timestamp(System.currentTimeMillis()).getTime();
         
         if (MigrationsMojo.DEBUG) {
             logger.debug("Create timestamp: " + timestamp);
         }
 
-        return String.format("%s%s", date, timestamp);
+        return timestamp.toString();
     }
 }

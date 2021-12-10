@@ -34,12 +34,14 @@ public class SQLMigrationGenerator {
             of(root(), SOURCE_PATH).toFile().mkdirs();
         }
 
+        var timestamp = timestamp();
+
         var path = of(
             root(),
             SOURCE_PATH,
             format(
                 TEMPLATE_PATH,
-                timestamp(),
+                timestamp,
                 migrationName
             )
         );

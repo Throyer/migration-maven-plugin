@@ -35,12 +35,14 @@ public class JavaMigrationGenerator {
             of(root(), SOURCE_PATH).toFile().mkdirs();
         }
 
+        var timestamp = timestamp();
+
         var path = of(
             root(),
             SOURCE_PATH,
             format(
                 TEMPLATE_PATH,
-                timestamp(),
+                timestamp,
                 migrationName
             )
         );
@@ -51,7 +53,7 @@ public class JavaMigrationGenerator {
                     logger.debug("try write data on file");
                 }
 
-                writer.write(format(getTemplate("java-based"), timestamp(), migrationName));
+                writer.write(format(getTemplate("java-based"), timestamp, migrationName));
                 writer.close();
 
                 if (MigrationsMojo.DEBUG) {

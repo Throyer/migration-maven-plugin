@@ -49,7 +49,7 @@ put it in the list of plugins in pom.xml
         <plugin>
             <groupId>com.github.throyer</groupId>
             <artifactId>migration-maven-plugin</artifactId>
-            <version>1.2.4</version>
+            <version>1.2.5</version>
         </plugin>
         ...
     </plugins>

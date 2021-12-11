@@ -3,7 +3,7 @@
 
     <groupId>com.github.throyer</groupId>
     <artifactId>migration-maven-plugin</artifactId>
-    <version>1.2.5</version>
+    <version>1.2.6</version>
     <packaging>maven-plugin</packaging>
 
     <name>Flyway migration generator</name>

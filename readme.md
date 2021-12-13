@@ -49,7 +49,7 @@ put it in the list of plugins in pom.xml
         <plugin>
             <groupId>com.github.throyer</groupId>
             <artifactId>migration-maven-plugin</artifactId>
-            <version>1.2.5</version>
+            <version>1.2.7</version>
         </plugin>
         ...
     </plugins>
@@ -64,10 +64,10 @@ mvn migration:generate -Dname=My-Migration-Name
 
 generate migation sql based file:
 ```bash
-mvn migration:generate -Dname=My-Migration-Name -Dtype=sql
+mvn migration:generate -Dname=My-Migration-Name -Dsql
 ```
 
 generate migation with debug:
 ```bash
-mvn migration:generate -Dname=My-Migration-Name -Ddebug=true
+mvn migration:generate -Dname=My-Migration-Name -Dverbose
 ```

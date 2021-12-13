@@ -20,19 +20,19 @@ public class MigrationsMojo extends AbstractMojo {
 
     public static boolean DEBUG;
 
-    @Parameter(property = "debug", defaultValue = "false")
-    boolean debug;
+    @Parameter(property = "verbose", defaultValue = "false")
+    boolean verbose;
 
-    @Parameter(property = "type", defaultValue = "java")
-    String type;
+    @Parameter(property = "sql", defaultValue = "false")
+    boolean sql;
 
     @Parameter(property = "name", required = true)
     String name;
 
     @Override
     public void execute() throws MojoExecutionException, MojoFailureException {
-        MigrationsMojo.DEBUG = debug;
-        if (type.equals("sql")) {
+        MigrationsMojo.DEBUG = verbose;
+        if (sql) {
             createSQLFileMigration(name);
         } else {
             createJavaMigration(name);

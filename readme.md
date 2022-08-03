@@ -9,7 +9,7 @@ Based on typeorm, laravel, entityframework and other frameworks/orms.
 >> 
 >> `src/main/resources/db/migration` sql based migrations dir
 
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.github.throyer/migration-maven-plugin/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.github.throyer/migration-maven-plugin)
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/io.github.throyer/migration-maven-plugin/badge.svg)](https://maven-badges.herokuapp.com/maven-central/io.github.throyer/migration-maven-plugin)
 
 ## Using
 

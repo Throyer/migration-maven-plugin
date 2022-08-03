@@ -9,25 +9,12 @@ Based on typeorm, laravel, entityframework and other frameworks/orms.
 >> 
 >> `src/main/resources/db/migration` sql based migrations dir
 
-## jitpack.oi
-[![Release](https://jitpack.io/v/throyer/migration-maven-plugin.svg)](https://jitpack.io/#throyer/migration-maven-plugin)
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.github.throyer/migration-maven-plugin/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.github.throyer/migration-maven-plugin)
 
 ## Using
 
-put the jitpack.io repository on pom.xml
-```xml
-<pluginRepositories>
-    <pluginRepository>
-        <id>jitpack.io</id>
-        <url>https://jitpack.io</url>
-    </pluginRepository>
-</pluginRepositories>
-```
-
 make sure you have the `spring boot` dependencies
 ```xml
-<dependencies>
-    ...
     <dependency>
         <groupId>org.flywaydb</groupId>
         <artifactId>flyway-core</artifactId>
@@ -36,25 +23,15 @@ make sure you have the `spring boot` dependencies
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-jooq</artifactId>
     </dependency>
-    ...
-</dependencies>
 ```
 
 put it in the list of plugins in pom.xml
 ```xml
-<build>
-    ...
-    <plugins>
-        ...
-        <plugin>
-            <groupId>com.github.throyer</groupId>
-            <artifactId>migration-maven-plugin</artifactId>
-            <version>1.2.7</version>
-        </plugin>
-        ...
-    </plugins>
-    ...
-</build>
+    <plugin>
+        <groupId>io.github.throyer</groupId>
+        <artifactId>migration-maven-plugin</artifactId>
+        <version>2.0.0</version>
+    </plugin>
 ```
 
 generate migation java based file:
